@@ -3,7 +3,6 @@ package crypto
 import (
 	"crypto/ed25519"
 	"crypto/rand"
-	"encoding/hex"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -112,7 +111,6 @@ func (mi *MultiIdentity) Switch(prefix string) (*Identity, error) {
 func (mi *MultiIdentity) List() []string {
 	var ids []string
 	for uid := range mi.Identities {
-		mi.Identities[uid]
 		ids = append(ids, uid)
 	}
 	return ids

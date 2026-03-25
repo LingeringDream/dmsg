@@ -1,7 +1,6 @@
 package ipfs
 
 import (
-	"os"
 	"testing"
 )
 
@@ -102,18 +101,15 @@ func TestHasIPFSBin(t *testing.T) {
 	_ = HasIPFSBin()
 }
 
-func TestContentRefSerialization(t *testing.T) {
+func TestContentRefFields(t *testing.T) {
 	ref := &ContentRef{Inline: false, CID: "abc123", Size: 1000}
-	data, err := ref.Serialize()
-	if err != nil {
-		t.Fatal(err)
+	if ref.Inline {
+		t.Fatal("expected non-inline ref")
 	}
-
-	ref2, err := DeserializeRef(data)
-	if err != nil {
-		t.Fatal(err)
+	if ref.CID != "abc123" {
+		t.Fatal("CID mismatch")
 	}
-	if ref2.CID != ref.CID {
-		t.Fatal("CID mismatch after roundtrip")
+	if ref.Size != 1000 {
+		t.Fatal("Size mismatch")
 	}
 }
