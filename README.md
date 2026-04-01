@@ -46,3 +46,9 @@ nohup ./dmsg > dmsg.log 2>&1 &
 
 ## 📜 License
 MIT License
+
+### 📱 一键部署 (Android)
+项目内置 `deploy_android.sh` 脚本，支持全自动交叉编译与部署。
+1. 连接已开启 USB 调试的 Android 设备。
+2. 运行 `chmod +x deploy_android.sh && ./deploy_android.sh`。
+3. 脚本将自动完成编译、传输至 `/data/local/tmp` 并以后台方式启动。
