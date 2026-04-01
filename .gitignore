@@ -1,0 +1,7 @@
+dmsg
+dmsg_data/
+*.vlog
+*.mem
+MANIFEST
+DISCARD
+LOCK
